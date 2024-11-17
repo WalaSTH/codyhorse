@@ -1,0 +1,1 @@
+responses = ['Sí', 'No', 'Definitivamente no', 'Claro que sí', 'Tal vez...']
