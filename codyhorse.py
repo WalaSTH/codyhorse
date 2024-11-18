@@ -14,7 +14,7 @@ from dotenv import load_dotenv
 from frases import frases
 from opinion import opinion
 from cards import cards
-from responses import responses
+from responses import responses, tiempo
 
 # Load the .env file that contains the bot token
 load_dotenv()
@@ -81,13 +81,21 @@ async def ask(ctx, *, question=None):
     if question is None:
         res = "No me hiciste ninguna pregunta"
     else:
-        response_index = random.randint(0,4)
+        res_len = len(responses)
+        response_index = random.randint(0,res_len - 1)
         res = responses[response_index]
+    await ctx.send(res)
+
+@bot.command(aliases=["cuándo"])
+async def cuando(ctx, *, question=None):
+    len_cuando = len(tiempo)
+    index = random.randint(0, len_cuando-1)
+    res = tiempo[index]
     await ctx.send(res)
 
 # Example command
 
-@bot.command(aliases=["cual"])
+@bot.command(aliases=["cual", "cuál"])
 async def quien(ctx, *, choices: str):
     options = choices.split(" o ")
     last = ['', '!', '!!']
