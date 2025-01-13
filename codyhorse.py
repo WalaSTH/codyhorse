@@ -131,7 +131,7 @@ async def horoscope(ctx, sign: str):
     res = response
     await ctx.send(res.json()['data']['horoscope_data'])
 
-@bot.command(name="say_truth")
+@bot.command(name="fact")
 async def cody(ctx):
     posho = await bot.fetch_user(336973499761688586)
     wala = await bot.fetch_user(270019023339651072)
